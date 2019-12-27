@@ -8,6 +8,7 @@ import java.util.Random;
 public class CFourmi {
   // Tableau des incrémentations à effectuer sur la position des fourmis
   // en fonction de la direction du deplacement
+	// initialisation du tableau des directions
   static private int[][] mIncDirection = {
           {0, -1},
           {1, -1},
@@ -46,7 +47,7 @@ public class CFourmi {
   /*************************************************************************************************
   */
   public CFourmi(Color pCouleurDeposee, Color pCouleurSuivie, float pProbaTD, float pProbaG, float pProbaD,
-      float pProbaSuivre, CPainting pPainting, char pTypeDeplacement, float pInit_x, float pInit_y, int pInitDirection,
+      float pProbaSuivre, CPainting pPainting, char pTypeDeplacement, int pInit_x, int pInit_y, int pInitDirection,
       int pTaille, float pSeuilLuminance, PaintingAnts pApplis) {
 
     mCouleurDeposee = pCouleurDeposee;
@@ -75,26 +76,11 @@ public class CFourmi {
       mDecalDir = 1;
     }
 
-    // initialisation du tableau des directions
-    CFourmi.mIncDirection[0][0] = 0;
-    CFourmi.mIncDirection[0][1] = -1;
-    CFourmi.mIncDirection[1][0] = 1;
-    CFourmi.mIncDirection[1][1] = -1;
-    CFourmi.mIncDirection[2][0] = 1;
-    CFourmi.mIncDirection[2][1] = 0;
-    CFourmi.mIncDirection[3][0] = 1;
-    CFourmi.mIncDirection[3][1] = 1;
-    CFourmi.mIncDirection[4][0] = 0;
-    CFourmi.mIncDirection[4][1] = 1;
-    CFourmi.mIncDirection[5][0] = -1;
-    CFourmi.mIncDirection[5][1] = 1;
-    CFourmi.mIncDirection[6][0] = -1;
-    CFourmi.mIncDirection[6][1] = 0;
-    CFourmi.mIncDirection[7][0] = -1;
-    CFourmi.mIncDirection[7][1] = -1;
-
     mSeuilLuminance = pSeuilLuminance;
     mNbDeplacements = 0;
+    
+    x = pInit_x;
+    y = pInit_y;
   }
 
   /*************************************************************************************************
@@ -240,7 +226,6 @@ public class CFourmi {
     /* test */
     if (Math.abs(mLuminanceCouleurSuivie - lLuminance) < mSeuilLuminance) {
       lReponse = true;
-      // System.out.print(x);
     }
 
     return lReponse;

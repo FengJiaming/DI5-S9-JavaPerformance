@@ -61,7 +61,7 @@ public class PaintingAnts extends java.applet.Applet implements Runnable {
    */
   @Override
   public void destroy() {
-    // System.out.println(this.getName()+ ":destroy()");
+     System.out.println(this.getName()+ ":destroy()");
 
     if (mApplis != null) {
       mApplis = null;
@@ -333,11 +333,11 @@ public class PaintingAnts extends java.applet.Applet implements Runnable {
         StringTokenizer lSTDéplacement = new StringTokenizer(lSTParam.nextToken(), ",");
         lInit_x = readFloatParameter(lSTDéplacement.nextToken());
         if (lInit_x < 0.0 || lInit_x > 1.0) {
-          lInit_x = (float) Math.random();
+          lInit_x = (int) Math.random();
         }
         lInit_y = readFloatParameter(lSTDéplacement.nextToken());
         if (lInit_y < 0.0 || lInit_y > 1.0) {
-          lInit_y = (float) Math.random();
+          lInit_y = (int) Math.random();
         }
         lInitDirection = readIntParameter(lSTDéplacement.nextToken());
         if (lInitDirection < 0 || lInitDirection > 7) {
@@ -377,7 +377,7 @@ public class PaintingAnts extends java.applet.Applet implements Runnable {
 
         // création de la fourmi
         lFourmi = new CFourmi(lCouleurDeposee, lCouleurSuivie, lProbaTD, lProbaG, lProbaD, lProbaSuivre, mPainting,
-            lTypeDeplacement, lInit_x, lInit_y, lInitDirection, lTaille, lSeuilLuminance, this);
+            lTypeDeplacement, (int) (lInit_x * mDimension.getWidth()), (int) (lInit_y * mDimension.getHeight()), lInitDirection, lTaille, lSeuilLuminance, this);
         mColonie.add(lFourmi);
         lNbFourmis++;
       }
@@ -437,7 +437,7 @@ public class PaintingAnts extends java.applet.Applet implements Runnable {
 
         // création et ajout de la fourmi dans la colonie
         lFourmi = new CFourmi(lTabColor[i], lTabColor[lColor], lProbaTD, lProbaG, lProbaD, lProbaSuivre, mPainting,
-            lTypeDeplacement, lInit_x, lInit_y, lInitDirection, lTaille, lSeuilLuminance, this);
+            lTypeDeplacement, (int) (lInit_x * mDimension.getWidth()), (int) (lInit_y * mDimension.getHeight()), lInitDirection, lTaille, lSeuilLuminance, this);
         mColonie.add(lFourmi);
       }
     }

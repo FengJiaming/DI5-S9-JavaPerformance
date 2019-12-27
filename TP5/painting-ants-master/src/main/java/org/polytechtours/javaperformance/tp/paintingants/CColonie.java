@@ -37,11 +37,6 @@ public class CColonie implements Runnable {
           mColonie.get(i).deplacer();
           mApplis.compteur();
         }
-      } else {
-        /*
-         * try { Thread.sleep(100); } catch (InterruptedException e) { break; }
-         */
-
       }
     }
   }
