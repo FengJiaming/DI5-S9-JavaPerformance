@@ -8,7 +8,16 @@ import java.util.Random;
 public class CFourmi {
   // Tableau des incrémentations à effectuer sur la position des fourmis
   // en fonction de la direction du deplacement
-  static private int[][] mIncDirection = new int[8][2];
+  static private int[][] mIncDirection = {
+          {0, -1},
+          {1, -1},
+          {1, 0},
+          {1, 1},
+          {0, 1},
+          {-1, 1},
+          {-1, 0},
+          {-1, -1}
+  };;
   // le generateur aléatoire (Random est thread safe donc on la partage)
   private static Random GenerateurAleatoire = new Random();
   // couleur déposé par la fourmi

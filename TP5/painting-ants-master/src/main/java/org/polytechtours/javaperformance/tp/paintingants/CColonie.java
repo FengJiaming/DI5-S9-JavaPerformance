@@ -1,5 +1,6 @@
 package org.polytechtours.javaperformance.tp.paintingants;
 
+import java.util.List;
 /*
  * CColonie.java
  *
@@ -13,12 +14,12 @@ import java.util.Vector;
 
 public class CColonie implements Runnable {
 
-  private Boolean mContinue = Boolean.TRUE;
-  private Vector<CFourmi> mColonie;
+  private boolean mContinue = true;
+  private List<CFourmi> mColonie;
   private PaintingAnts mApplis;
 
   /** Creates a new instance of CColonie */
-  public CColonie(Vector<CFourmi> pColonie, PaintingAnts pApplis) {
+  public CColonie(List<CFourmi> pColonie, PaintingAnts pApplis) {
     mColonie = pColonie;
     mApplis = pApplis;
   }
