@@ -87,7 +87,7 @@ public class CFourmi {
    * Titre : void deplacer() Description : Fonction de deplacement de la fourmi
    *
    */
-  public synchronized void deplacer() {
+  public  void deplacer() {
     float tirage, prob1, prob2, prob3, total;
     int[] dir = new int[3];
     int i, j;
@@ -107,7 +107,7 @@ public class CFourmi {
     if (mApplis.mBaseImage != null) {
       lCouleur = new Color(mApplis.mBaseImage.getRGB(i, j));
     } else {
-      lCouleur = new Color(mPainting.getCouleur(i, j).getRGB());
+      lCouleur = new Color(mPainting.getCouleur(i, j));
     }
     if (testCouleur(lCouleur)) {
       dir[0] = 1;
@@ -118,7 +118,7 @@ public class CFourmi {
     if (mApplis.mBaseImage != null) {
       lCouleur = new Color(mApplis.mBaseImage.getRGB(i, j));
     } else {
-      lCouleur = new Color(mPainting.getCouleur(i, j).getRGB());
+      lCouleur = new Color(mPainting.getCouleur(i, j));
     }
     if (testCouleur(lCouleur)) {
       dir[1] = 1;
@@ -128,7 +128,7 @@ public class CFourmi {
     if (mApplis.mBaseImage != null) {
       lCouleur = new Color(mApplis.mBaseImage.getRGB(i, j));
     } else {
-      lCouleur = new Color(mPainting.getCouleur(i, j).getRGB());
+      lCouleur = new Color(mPainting.getCouleur(i, j));
     }
     if (testCouleur(lCouleur)) {
       dir[2] = 1;
@@ -230,4 +230,11 @@ public class CFourmi {
 
     return lReponse;
   }
+  
+  /**
+   * Description :Finaliser l'objet
+   */
+  protected void finalize() throws Throwable {
+		super.finalize();
+	}
 }
