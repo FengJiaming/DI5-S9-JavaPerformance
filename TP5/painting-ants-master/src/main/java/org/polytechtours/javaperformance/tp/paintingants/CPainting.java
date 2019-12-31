@@ -236,7 +236,6 @@ public class CPainting extends Canvas implements MouseListener {
    ******************************************************************************/
   public void setCouleur(int x, int y, Color c, int pTaille) {
 
-    synchronized (mMutexCouleurs) {
       if (!mSuspendu) {
         // on colorie la case sur laquelle se trouve la fourmi
         mGraphics.setColor(c);
@@ -263,7 +262,7 @@ public class CPainting extends Canvas implements MouseListener {
         	convolve(mMatriceConv49, x, y);
         	break;
       }// end switch
-    }
+
   }
   
   

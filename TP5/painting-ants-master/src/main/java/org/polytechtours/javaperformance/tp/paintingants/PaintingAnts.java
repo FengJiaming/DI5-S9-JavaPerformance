@@ -452,7 +452,6 @@ public class PaintingAnts extends java.applet.Applet implements Runnable {
    */
   @Override
   public void run() {
-    // System.out.println(this.getName()+ ":run()");
 
     int i;
     String lMessage;
@@ -461,12 +460,7 @@ public class PaintingAnts extends java.applet.Applet implements Runnable {
 
     Thread currentThread = Thread.currentThread();
 
-    /*
-     * for ( i=0 ; i<mColonie.size() ; i++ ) {
-     * ((CFourmi)mColonie.elementAt(i)).start(); }
-     */
-
-    mThreadColony.start();
+    mColony.start();
 
     while (mApplis == currentThread) {
       if (mPause) {
@@ -503,8 +497,6 @@ public class PaintingAnts extends java.applet.Applet implements Runnable {
   public void start() {
     // System.out.println(this.getName()+ ":start()");
     mColony = new CColonie(mColonie, this);
-    mThreadColony = new Thread(mColony);
-    mThreadColony.setPriority(Thread.MIN_PRIORITY);
 
     fpsTimer = new Timer(1000, new ActionListener() {
       @Override
@@ -519,7 +511,7 @@ public class PaintingAnts extends java.applet.Applet implements Runnable {
     // Create the thread.
     mApplis = new Thread(this);
     // and let it start running
-    mApplis.setPriority(Thread.MIN_PRIORITY);
+    mApplis.setPriority(Thread.MAX_PRIORITY);
     mApplis.start();
   }
 

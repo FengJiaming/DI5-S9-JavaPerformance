@@ -12,33 +12,37 @@ import java.util.List;
  */
 import java.util.Vector;
 
-public class CColonie implements Runnable {
+public class CColonie {
 
-  private boolean mContinue = true;
-  private List<CFourmi> mColonie;
-  private PaintingAnts mApplis;
+	private List<CFourmi> mColonie;
+	private List<Thread> mColonieThreads;
+	private PaintingAnts mApplis;
 
-  /** Creates a new instance of CColonie */
-  public CColonie(List<CFourmi> pColonie, PaintingAnts pApplis) {
-    mColonie = pColonie;
-    mApplis = pApplis;
-  }
+	/** Creates a new instance of CColonie */
+	public CColonie(List<CFourmi> pColonie, PaintingAnts pApplis) {
+		mColonie = pColonie;
+		mApplis = pApplis;
+		mColonieThreads = new Vector<Thread>();
+	}
 
-  public void pleaseStop() {
-    mContinue = false;
-  }
+	/** Démarrer le thread principal */
+	public void start() {
+		for (int i = 0; i < mColonie.size(); i++) {
+			Thread newThread = new Thread(mColonie.get(i));
+			newThread.start();
+			mColonieThreads.add(newThread);
+		}
+	}
 
-  @Override
-  public void run() {
+	/** Attendez que tous les threads se terminent */
+	public void pleaseStop() {
+		for (int i = 0; i < mColonieThreads.size(); i++) {
+			mColonie.get(i).pleaseStop();
+			try {
+				mColonieThreads.get(i).join();
+			} catch (Exception e) {
 
-    while (mContinue == true) {
-      if (!mApplis.getPause()) {
-        for (int i = 0; i < mColonie.size(); i++) {
-          mColonie.get(i).deplacer();
-          mApplis.compteur();
-        }
-      }
-    }
-  }
-
+			}
+		}
+	}
 }
