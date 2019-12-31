@@ -102,7 +102,7 @@ public class CFourmi implements Runnable {
 		if (mApplis.mBaseImage != null) {
 			lCouleur = new Color(mApplis.mBaseImage.getRGB(i, j));
 		} else {
-			lCouleur = new Color(mPainting.getCouleur(i, j).getRGB());
+			lCouleur = new Color(mPainting.getCouleur(i, j));
 		}
 		if (testCouleur(lCouleur)) {
 			dir[0] = 1;
@@ -113,7 +113,7 @@ public class CFourmi implements Runnable {
 		if (mApplis.mBaseImage != null) {
 			lCouleur = new Color(mApplis.mBaseImage.getRGB(i, j));
 		} else {
-			lCouleur = new Color(mPainting.getCouleur(i, j).getRGB());
+			lCouleur = new Color(mPainting.getCouleur(i, j));
 		}
 		if (testCouleur(lCouleur)) {
 			dir[1] = 1;
@@ -123,7 +123,7 @@ public class CFourmi implements Runnable {
 		if (mApplis.mBaseImage != null) {
 			lCouleur = new Color(mApplis.mBaseImage.getRGB(i, j));
 		} else {
-			lCouleur = new Color(mPainting.getCouleur(i, j).getRGB());
+			lCouleur = new Color(mPainting.getCouleur(i, j));
 		}
 		if (testCouleur(lCouleur)) {
 			dir[2] = 1;
@@ -229,8 +229,8 @@ public class CFourmi implements Runnable {
 	public void pleaseStop() {
 		mContinue = false;
 	}
-
-	/** Chaque fourmi commence un thread */
+	
+	/** Chaque fourmi commence un Thread	*/
 	@Override
 	public void run() {
 		while (mContinue == true) {
