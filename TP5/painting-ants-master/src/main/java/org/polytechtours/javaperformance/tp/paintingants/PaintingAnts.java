@@ -379,14 +379,6 @@ public class PaintingAnts extends java.applet.Applet implements Runnable {
         lFourmi = new CFourmi(lCouleurDeposee, lCouleurSuivie, lProbaTD, lProbaG, lProbaD, lProbaSuivre, mPainting,
             lTypeDeplacement, (int) (lInit_x * mDimension.getWidth()), (int) (lInit_y * mDimension.getHeight()), lInitDirection, lTaille, lSeuilLuminance, this);
         mColonie.add(lFourmi);
-        
-        //libérer la mémoire
-		try {
-			lFourmi.finalize();
-		} catch (Throwable e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		
         lNbFourmis++;
       }
@@ -448,14 +440,7 @@ public class PaintingAnts extends java.applet.Applet implements Runnable {
         lFourmi = new CFourmi(lTabColor[i], lTabColor[lColor], lProbaTD, lProbaG, lProbaD, lProbaSuivre, mPainting,
             lTypeDeplacement, (int) (lInit_x * mDimension.getWidth()), (int) (lInit_y * mDimension.getHeight()), lInitDirection, lTaille, lSeuilLuminance, this);
         mColonie.add(lFourmi);
-        
-        //libérer la mémoire
-		try {
-			lFourmi.finalize();
-		} catch (Throwable e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+
       }
     }
     // on affiche le nombre de fourmis

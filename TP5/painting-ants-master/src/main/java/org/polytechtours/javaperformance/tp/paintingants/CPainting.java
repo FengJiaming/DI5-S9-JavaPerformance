@@ -193,7 +193,8 @@ public class CPainting extends Canvas implements MouseListener {
 	public void paint(Graphics pGraphics) {
 
 	}
-
+	
+	@Override
 	public void update(Graphics pGraphics) {
         paint(bufferedImage.getGraphics());
         pGraphics.drawImage(bufferedImage, 0, 0, this);

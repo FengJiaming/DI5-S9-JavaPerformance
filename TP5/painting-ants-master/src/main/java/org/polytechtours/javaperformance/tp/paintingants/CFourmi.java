@@ -231,10 +231,4 @@ public class CFourmi {
     return lReponse;
   }
   
-  /**
-   * Description :Finaliser l'objet
-   */
-  protected void finalize() throws Throwable {
-		super.finalize();
-	}
 }
